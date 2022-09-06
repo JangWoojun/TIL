@@ -12,7 +12,7 @@
 
 ## CS
 * 운영체제의 자원 관리
-    + [프로세스 관리]() 
+    + [프로세스 관리](https://github.com/JangWoojun/TIL/blob/main/CS/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%20%EA%B4%80%EB%A6%AC.md) 
 
 ## C++
 
