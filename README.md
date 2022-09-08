@@ -22,4 +22,4 @@
 ## C
 
 * 문법
-    + [기초 문법](https://github.com/JangWoojun/TIL/blob/main/C/C%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95.md
+    + [기초 문법](https://github.com/JangWoojun/TIL/blob/main/C/C%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95.md)
