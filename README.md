@@ -10,6 +10,10 @@
 * 모르는 게 생겨 해당 문서를 봤을 때, 보고 바로 이해가 가능하도록 작성하도록 노력합니다.
 * 여기서 완성된 내용은 [블로그](https://jangwoojun.github.io/)에도 정리해서 각 주제 카테고리에 올리고 있습니다.
 
+## Mobile 
+* Android
+    + 
+
 ## CS
 * 운영체제의 자원 관리
     + [프로세스 관리](https://github.com/JangWoojun/TIL/blob/main/CS/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%20%EA%B4%80%EB%A6%AC.md) 
