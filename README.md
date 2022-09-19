@@ -17,7 +17,8 @@
 ## CS
 * 운영체제의 자원 관리
     + [프로세스 관리](https://github.com/JangWoojun/TIL/blob/main/CS/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%20%EA%B4%80%EB%A6%AC.md)
-    + [보조 기억 장치 관리](https://github.com/JangWoojun/TIL/blob/main/CS/%EB%B3%B4%EC%A1%B0%20%EA%B8%B0%EC%96%B5%20%EC%9E%A5%EC%B9%98%20%EA%B4%80%EB%A6%AC.md) 
+    + [보조 기억 장치 관리](https://github.com/JangWoojun/TIL/blob/main/CS/%EB%B3%B4%EC%A1%B0%20%EA%B8%B0%EC%96%B5%20%EC%9E%A5%EC%B9%98%20%EA%B4%80%EB%A6%AC.md)
+    + [가상 기억 장치 관리] (https://github.com/JangWoojun/TIL/blob/main/CS/%EA%B0%80%EC%83%81%20%EA%B8%B0%EC%96%B5%20%EC%9E%A5%EC%B9%98%20%EA%B4%80%EB%A6%AC.md)
 
 ## C++
 
