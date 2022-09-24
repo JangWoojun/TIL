@@ -10,9 +10,10 @@
 * 모르는 게 생겨 해당 문서를 봤을 때, 보고 바로 이해가 가능하도록 작성하도록 노력합니다.
 * 여기서 완성된 내용은 [블로그](https://jangwoojun.github.io/)에도 정리해서 각 주제 카테고리에 올리고 있습니다.
 
-## Mobile 
+## Mobile
 * Android
-    + 
+    + [안드로이드 스튜디오 chipmunk 버전 파이어베이스 Gradle설정](https://github.com/JangWoojun/TIL/blob/main/Android/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EB%B2%A0%EC%9D%B4%EC%8A%A4%20%EC%B5%9C%EC%8B%A0%20Gradle%20%EC%84%A4%EC%A0%95.md)
+    
 
 ## CS
 * 운영체제의 자원 관리
