@@ -1,4 +1,4 @@
-> 작성일 2022/09/07 ~ 2022/09/26
+> 작성일 2022/09/07 ~ 2022/09/27
 
 <br>
 
@@ -1427,3 +1427,68 @@ return 0;
 SWAP 이전: i : 3, j : 5
 SWAP 이후: i : 5, j : 3
 ~~~
+
+## 함수 포인터
+
+함수 포인터란 메모리 상에 올라간 함수의 시작 주소를 가리키는 역할을 하는 포인터를 말한다
+
+함수의 시작 주소 값은 배열과 마찬가지로 이름이 그 시작 주소를 나타낸다
+
+함수의 포인터의 선언법은
+~~~
+(함수의 리턴형) (*포인터 이름)(인자 타입)
+~~~
+위와 같다
+
+코드
+~~~
+#include <stdio.h>
+
+int max(int a, int b); 
+
+int main() {
+    int a = 3, b = 5;
+    int (*pmax)(int, int); 
+    pmax = max;
+    
+    printf("a : %d \nb : %d \n",a,b);
+
+    printf("max(a,b) : %d \n", max(a, b));
+    printf("pmax(a,b) : %d \n", pmax(a, b));
+
+}
+int max(int a, int b){ 
+    if (a > b)
+        return a; 
+    else
+        return b; 
+    return 0;
+}
+~~~
+
+출력
+
+~~~
+a : 3 
+b : 5 
+max(a,b) : 5 
+pmax(a,b) : 5 
+~~~
+
+코드를 뜯어보자
+
+~~~
+int (*pmax)(int, int); 
+pmax = max;
+~~~
+이 부분은 반환형이 int 값이고 인자의 타입이 int형 2개인 함수를 가르리키는 포인터 pmax를 정의하고
+
+그 정의와 일치한 max함수에 첫 번째 주소를 pmax포인터에 넣은 것이다
+
+그러니 출력이
+
+~~~
+max(a,b) : 5 
+pmax(a,b) : 5 
+~~~
+로 동일하게 니온 것이다
