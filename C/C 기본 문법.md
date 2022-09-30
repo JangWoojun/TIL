@@ -1,4 +1,4 @@
-> 작성일 2022/09/07 ~ 2022/09/29
+> 작성일 2022/09/07 ~ 2022/09/30
 
 <br>
 
@@ -1634,3 +1634,55 @@ a.weight = 80;
 ~~~
 그 후 a.age a.height a.weight로
 구조체의 멤버에 값을 대입한 것이다
+
+## 공용체
+
+공용체는 union 키워드를 사용하여 선언하며 
+바로 모든 멤버 변수가 하나의 메모리 공간을 공유한다는 점을 제외하고 구조체와 같다
+
+또한 모든 멤버 변수가 같은 메모리를 공유하므로 공용체는 한 번에 하나의 멤버 변수밖에 사용할 수 없다
+
+코드
+~~~
+typedef union
+
+{
+
+    unsigned char a;
+
+    unsigned short b;
+
+    unsigned int c;
+
+} SHAREDATA;
+
+ 
+
+int main(void)
+
+{
+
+    SHAREDATA var;
+
+    var.c = 0x12345678;  
+
+ 
+
+    printf("%x\n", var.a);
+
+    printf("%x\n", var.b);
+
+    printf("%x\n", var.c);
+
+    return 0;
+
+}
+~~~
+
+출력
+
+~~~
+78
+5678
+12345678
+~~~
