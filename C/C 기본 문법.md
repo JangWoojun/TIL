@@ -1,4 +1,4 @@
-> 작성일 2022/09/07 ~ 2022/09/30
+> 작성일 2022/09/07 ~ 2022/10/01
 
 <br>
 
@@ -1644,23 +1644,17 @@ a.weight = 80;
 
 코드
 ~~~
-typedef union
-
-{
-
+typedef union{
     unsigned char a;
 
     unsigned short b;
 
     unsigned int c;
-
 } SHAREDATA;
 
  
 
-int main(void)
-
-{
+int main(){
 
     SHAREDATA var;
 
@@ -1674,8 +1668,6 @@ int main(void)
 
     printf("%x\n", var.c);
 
-    return 0;
-
 }
 ~~~
 
@@ -1685,4 +1677,45 @@ int main(void)
 78
 5678
 12345678
+~~~
+
+## 열거체
+
+열거체는 새로운 타입을 선언하면서 동시에 해당 타입이 가질 수 있는 정수형 상숫값도 같이 명시할 수 있는 타입을 말한다
+
+이러한 열거체를 이용하면 프로그램의 가독성이 높아지고 변수가 지니는 값에 의미를 부여할 수도 있다는 장점이 있다
+
+코드
+~~~
+enum Days {MON, TUE, WED, THU, FRI, SAT, SUN};  
+
+int main(){
+    enum Days today;  
+
+    today = SAT;  
+
+
+    if (today >= SAT && today <= SUN){
+        puts("오늘은 주말이네요~ 주말에도 열심히 공부하는 여러분은 최고에요!");
+    }
+
+    else{
+        printf("주말까지 %d일 남았어요~ 조금만 더 힘내자구요!", 5 - today);
+    }
+
+ 
+
+    puts("각각의 열거체에 해당하는 정수값은 다음과 같습니다.");
+
+    printf("%d %d %d %d %d %d %d\n", MON, TUE, WED, THU, FRI, SAT, SUN);
+
+}
+~~~
+
+출력
+
+~~~
+오늘은 주말이네요~ 주말에도 열심히 공부하는 여러분은 최고에요!
+각각의 열거체 멤버에 해당하는 정수값은 다음과 같습니다.
+0 1 2 3 4 5 6
 ~~~
