@@ -138,7 +138,8 @@ fun main(){
 
 위 방법은 코틀린이 자바와 호환된다는 점을 이용하여 Scanner 객체를 만들어 입력받은 것이다 next() 또한 String 타입 형태로 값을 받고
 
-next와 비슷한 함수로는 readln()처럼 개행 기준으로 입력을 받는 nextLine()과 next뒤에 자료형을 적어 해당 형태로 받는 ex)Int형으로 받는 nextInt() 등이 존재한다
+next와 비슷한 함수로는 readln()처럼 개행 기준으로 입력을 받는 nextLine()과 next뒤에 자료형을 적어 해당 형태로 받는 
+ex)Int형으로 받는 nextInt(), Byte형으로 받는 nexyByte(), Double형으로 받는 nextDouble() 등등이 존재한다
 
 ## 문자열 템플릿
 
