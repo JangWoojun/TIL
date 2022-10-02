@@ -81,3 +81,68 @@ Hello World
 
 이와 같이 print와 println는 출력 후 줄 바꿈을 하느냐 안 하느냐로 갈린다
 
+## val VS var
+
+val 과 var은 코틀린에서 변수를 선언하는 법이다
+사용법은 동일하다 val나 var뒤에 변수명을 적어 선언할 수 있다
+
+예제와 함께 차이를 보면
+
+코드
+~~~
+fun main(){
+    val name = "Kotlin"
+    println("Hi "+name)
+}
+~~~
+
+출력
+~~~
+Hi Kotlin
+~~~
+
+코드
+~~~
+fun main(){
+    var name = "Kotlin"
+    println("Hi "+name)
+}
+~~~
+
+출력
+~~~
+Hi Kotlin
+~~~
+
+이것만 봤을 때 val과 var는 동일해 보인다 하지만 변경하려고 할 때 차이가 들어난다
+
+코드
+~~~
+fun main(){
+    var name = "Kotlin"
+    name = "Java"
+    println("Hi "+name)
+}
+~~~
+
+출력
+~~~
+Hi Java
+~~~
+
+코드
+~~~
+fun main(){
+    val name = "Kotlin"
+    name = "Java"
+    println("Hi "+name)
+}
+~~~
+
+출력
+~~~
+Error
+~~~
+
+위와 같이 var는 값을 변경할 수 있으나 val는 변경하려고 하면 오류가 뜨는 것을 볼 수 있다
+
