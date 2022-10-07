@@ -1,4 +1,4 @@
-> 작성일 2022/10/02 ~ 2022/10/06
+> 작성일 2022/10/02 ~ 2022/10/07
 
 <br>
 
@@ -944,3 +944,229 @@ avg 함수는 a를 가변으로 받고 for문으로 a를 하나 씩 가져와서
 num이라는 변수에 더해준 뒤 num을 a에 개수로 나눠 평균 값을 구해주는 함수이다
 
 출력이 5.5가 나온 까닭을 보면 main 함수에서 1부터 10까지 입력하였고 1부터 10에 합인 55에 10을 나눠서 5.5가 나온 것이다
+
+## 널러블
+
+널러블은 코틀린에서 변수가 null 타입을 가질 수 있게 허용한 것을 말한다
+코틀린에서 기본적으로는 Non-null 타입으로 null을 가질 수 없는 타입이기에 null을 가지게
+하고 싶다면 따로 처리를 해줘야 한다
+
+코드
+~~~
+fun main(){
+
+    var name : String = "Kotlin"
+    name = null
+
+    println(name)
+}
+~~~
+
+출력
+~~~
+Error
+~~~
+
+코드
+~~~
+fun main(){
+
+    var name : String? = "Kotlin"
+    name = null
+
+    println(name)
+}
+~~~
+
+출력
+~~~
+null
+~~~
+
+두 코드에 차이를 보면 타입 옆에 ? 표를 붙였는가 안 붙였는 가로
+코드가 오류가 나는지 안 나는지 결정되는 것을 볼 수 있다
+
+그 까닭은 타입 뒤에 ? 를 붙이면 Nullable로
+null값을 가질 수 있는 타입이 되기 때문이다
+
+## 안전호출 연산자
+
+안전호출 연산자는 Nullable 변수(객체)를 사용할 때 null일 경우 처리를  할 수 있도록 도와준다
+
+코드
+~~~
+fun main(){
+
+    var name : String? = "Kotlin"
+    
+
+    var nameLength = name?.length
+
+    print(nameLength)
+
+}
+~~~
+
+출력
+~~~
+6
+~~~
+
+코드
+~~~
+fun main(){
+
+    var name : String? = "Kotlin"
+    name = null
+
+    var nameLength = name?.length
+
+    print(nameLength)
+
+}
+~~~
+
+출력
+~~~
+null
+~~~~
+
+안전 호출 연산자인 ?. 에 의미를 살펴보면
+
+~~~
+var nameLength = name?.length
+~~~
+
+만약 name에 null이 아니라면 name에 length를 nameLength 변수에 담고
+null이라면 null을 nameLength 변수에 담는다는 뜻으로
+
+~~~
+var nameLength = name?.length
+~~~
+와
+
+~~~
+if(name !=null){
+    var nameLength = name.length
+}
+else {
+    var nameLength = null
+}
+~~~
+는 같은 의미이다    
+
+만약 null이 아니라면 name에 length를 출력하는 코드를 살펴보면
+
+코드
+~~~
+fun main(){
+
+    var name : String? = "Kotlin"
+    name = null
+
+    println(name?.length)
+}
+~~~
+
+출력
+~~~
+null
+~~~
+
+코드
+~~~
+fun main(){
+
+    var name : String? = "Kotlin"
+
+    println(name?.length)
+}
+~~~
+
+출력
+~~~
+6
+~~~
+
+이렇게 나타낼 수 있으며
+
+~~~
+println(name?.length)
+~~~
+에 의미는 name이 null이라면 null을 출력하고 아니라면
+name에 length를 출력하라는 코드이다
+
+## 엘비스 연산자
+
+엘비스 연산자는 ?:로 표현하며 ?:의 왼쪽 객체가 non-null이면 
+그 객체의 값이 리턴하고 null이라면 ?:의 오른쪽 값을 리턴한다
+
+코드
+~~~
+fun main(){
+
+    var name : String? = "Kotlin"
+    
+    println(name)
+
+    name = null
+    name = name ?: "language"
+
+    println(name)
+}
+~~~
+
+출력
+~~~
+Kotlin
+language
+~~~
+
+해당 코드를 뜯어보면 첫번 째 println에서는 name에 값이 null이 아니었으니
+원래 값인 Kotlin이 출력되고 두번 째에선 null로 값이 바뀌었으니 language가 출력된 것이다 
+
+## non-null 연산자
+
+!!을 사용하는 연산자로 널러블 타입을 non-null타입으로 변경해준다
+단 null이면 오류가 나기 때문에 값이 있다고 확신해야만 사용할 수 있다
+
+코드
+~~~
+fun main(){
+
+    var name : String? = "Kotlin"
+
+    name = name!!.toLowerCase()
+    println(name)
+
+
+}
+~~~
+
+출력
+~~~
+kotlin
+~~~
+
+
+코드
+~~~
+fun main(){
+
+    var name : String? = "Kotlin"
+    name = null
+
+    name = name!!.toLowerCase()
+    println(name)
+
+
+}
+~~~
+
+출력
+~~~
+오류
+~~~
+
+참고로 여기서 toLowerCase()은 모두 소문자로 바꿔주는 메소드이다 
+
