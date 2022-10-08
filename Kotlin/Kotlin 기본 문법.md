@@ -1,4 +1,4 @@
-> 작성일 2022/10/02 ~ 2022/10/07
+> 작성일 2022/10/02 ~ 2022/10/08
 
 <br>
 
@@ -1169,4 +1169,212 @@ Error
 ~~~
 
 참고로 여기서 toLowerCase()은 모두 소문자로 바꿔주는 메소드이다 
+
+## 클래스
+
+클래스란 값과 그 값을 사용하는 기능들을 묶어놓은 것으로 고유의 특징 값을 넣는 속성과 기능을 구현한 함수로 이루어졌다
+
+코드
+~~~
+fun main(){
+
+}
+class MobilePhone(osName:String,brand:String,model:String)
+~~~
+
+코틀린에서 클래스 선언 법은 위 코드와 같이 class를 적은 뒤 클래스 명과 기본 생성자인 소괄호 안에 속성 값을 속성 값 명과 타입을 쉼표로 구분하며 선언할 수 있다
+
+사실 여기서 constructor은 생략되었다
+
+이러한 클래스는 인스턴스를 만드는 틀로 위에 선언한 클래스로 인스턴스를 만들어보자 
+
+* 참고로 객체란 변수, 자료 구조, 함수, 메서드, 식별자에 의해 참조된 메모리 상의 값 등을 의미하고 인스턴스는 서로 다른 속성의 객체를 지칭하는 용어이다 
+
+코드
+~~~
+fun main(){
+    val galaxy = MobilePhone("Android","Samsung","S23")
+}
+class MobilePhone(osName:String,brand:String,model:String)
+~~~
+
+이렇게 하면 galaxy라는 변수에 osName 속성에는 Android 라는 값을 brand 속성에는 Samsung 이라는 값을 model 속성에는 S23 이라는 값을 인스턴스를 만든 것이다
+
+### 인스턴트
+
+코드
+~~~
+fun main(){
+    val galaxy = MobilePhone("Android","Samsung","S23")
+    println("galaxy에 os는 ${galaxy.osName}")
+}
+class MobilePhone(val osName:String, val brand:String, val model:String)
+~~~
+출력
+~~~
+galaxy에 os는 Android
+~~~
+
+위 코드처럼 인스턴트를 담은 변수를 사용하는 법은 변수명뒤에 .을 찍고 속성명을 적으면 된다
+
+또한
+
+코드
+~~~
+fun main(){
+    val galaxy = MobilePhone(brand = "Samsung", model = "S23")
+    println("galaxy에 os는 ${galaxy.osName} , brand는 ${galaxy.brand} , model은 ${galaxy.model}")
+}
+class MobilePhone(val osName:String = "Android", val brand:String, val model:String)
+~~~
+
+출력
+~~~
+galaxy에 os는 Android , brand는 Samsung , model은 S23
+~~~
+
+위와 같이 특정 속성 값에 기본 값을 지정하거나 특정 속성 값만 담는 것도 가능하다
+
+### 이니셜라이저
+
+다음으로 이렇게 클래스를 선언하게 되면 init을 사용할 수 있는데 여기서 init은 이니셜라이저를
+지칭하며 객체가 생성될 때 호출되는 것을 말한다 
+
+코드
+~~~
+fun main(){
+    val galaxy = MobilePhone("Android","Samsung","S23")
+    val iphone = MobilePhone("ios","Apple","14 Pro")
+    val mi = MobilePhone("Android","Xiaomi","12S Ultra")
+}
+class MobilePhone(val osName:String,val brand:String,val model:String){
+    init {
+        println("This phone OS is $osName \nThis phone Brand is $brand \nThis phone Model Name is $model \n")
+    }
+}
+~~~
+
+출력
+~~~
+This phone OS is Android 
+This phone Brand is Samsung 
+This phone Model Name is S23 
+
+This phone OS is ios 
+This phone Brand is Apple 
+This phone Model Name is 14 Pro 
+
+This phone OS is Android 
+This phone Brand is Xiaomi 
+This phone Model Name is 12S Ultra 
+~~~
+위 코드에선 init에 속성 값들을 출력하게
+만들었으니 인스턴트들이 만들어질 때 속성 값들이 출력된 것이다
+
+### 메소드
+
+자주 쓰는 기능들은 클래스 안에 함수로 만들 수 있는데 이것을 멤버함수 또는 메소드라고 하며
+기기에 사양을 위와 같이 생성 될 때가 아닌 내가 원하는 것만 출력시킬 때 편하게 메소드를
+만들어보면
+
+코드 
+
+~~~
+fun main(){
+    val galaxy = MobilePhone("Android","Samsung","S23")
+    val iphone = MobilePhone("ios","Apple","14 Pro")
+    val mi = MobilePhone("Android","Xiaomi","12S Ultra")
+
+    iphone.spec()
+}
+class MobilePhone(val osName:String,val brand:String,val model:String){
+    fun spec (){
+        println("This phone OS is $osName \nThis phone Brand is $brand \nThis phone Model Name is $model \n")
+    }
+}
+~~~
+출력
+~~~
+This phone OS is ios 
+This phone Brand is Apple 
+This phone Model Name is 14 Pro 
+~~~
+
+### 멤버 변수
+
+코드
+~~~
+fun main(){
+    val galaxy = MobilePhone("Android","Samsung","S23")
+    galaxy.price=1000
+
+    println("galaxy is ${galaxy.price}$")
+}
+class MobilePhone(val osName:String,val brand:String,val model:String){
+    
+    var price : Int? = null
+    
+}
+~~~
+출력
+~~~
+galaxy is 1000$
+~~~
+
+클래스 내에서는 메소드 같이 함수 뿐만 아니라 변수도 선언할 수 있는데 이것을
+멤버 변수라고 부른다
+
+
+### 보조 생성자
+
+보조 생성자란 클래스 내부에 정의하는 생성자로 constructor(인자){초기화}형태를 가진다
+
+코드
+~~~
+fun main(){
+    val galaxy = MobilePhone("Android","Samsung","S23",1000)
+
+    galaxy.spec()
+
+}
+class MobilePhone(val osName:String,val brand:String,val model:String){
+    var price : Int? = null
+    constructor(osName:String, brand:String, model:String, price : Int):
+            this(osName,brand, model){
+                this.price=price
+            }
+    fun spec (){
+        println("This phone OS is $osName \nThis phone Brand is $brand \nThis phone Model Name is $model \n" +
+                "This phone Model Prince is $price$\n")
+    }
+}
+~~~
+
+출력
+~~~
+This phone OS is Android 
+This phone Brand is Samsung 
+This phone Model Name is S23 
+This phone Model Prince is 1000$
+~~~
+
+해당 코드에 대해 뜯어보면 
+~~~
+constructor(osName:String, brand:String, model:String, price : Int)
+~~~
+라고 보조 생성자를 만들어줬고
+~~~
+:
+            this(osName,brand, model)
+~~~
+이 부분에서 생성자에 osName,brand, model 값을 받는다고 해준 것이고
+~~~
+{
+                this.price=price
+            }
+~~~
+이 부분은 객체 생성 시 보조 생성자에 전달된 price에 값이 클래스 내부에 생성한 멤버 변수인 price으로 지정한 것이다
+
+
+
 
