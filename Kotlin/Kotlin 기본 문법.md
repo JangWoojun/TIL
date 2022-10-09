@@ -1576,3 +1576,70 @@ price must be greater than zero
 아렇게 만약 value가 0 이하일 시 price must be greater than zero 에러 메세지를 출력하게 
 코드를 만들 수 있다
 
+### 데이터 클래스
+
+데이터 클래스는 copy(),equals(),toString() 등 다양한 메소드를 자동으로 생성해주는 클래스로 기본 생성자에 1개 이상의 파라미터가 있어야 하고
+기본 생성자의 파라미터가 val 또는 var 로 선언해야 한다는 등 조건이 있다
+
+코드
+~~~
+data class User(val id: Long, var name: String)
+
+fun main(){
+    val user1 = User(1,"Kotlin")
+    val user2 = User(2,"JAVA")
+
+    println(user1)
+    println(user2)
+}
+~~~
+
+출력
+~~~
+User(id=1, name=Kotlin)
+User(id=2, name=JAVA)
+~~~
+
+위 코드처럼 데이터 클래스는
+~~~
+data class User(val id: Long, var name: String)
+~~~
+이렇게 data를 class 앞에 적어주고 그 뒤 클래스명과
+생성자에 파라미터를 하나 이상 있어야 되며
+var나 val이여야 한다
+
+또한 위에서 설명한 것처럼 유용한 메소드를 사용할 수 있는데
+~~~
+data class User(val id: Long, var name: String)
+
+fun main(){
+    val user1 = User(1,"Kotlin")
+    val user2 = User(2,"JAVA")
+    val user3 = User(3,"Kotlin")
+
+    val copyUser1 = user3.copy(id = 1)
+
+    println(user3)
+    println(copyUser1)
+
+    println(user1.equals(copyUser1))
+}
+~~~
+
+출력
+~~~
+User(id=3, name=Kotlin)
+User(id=1, name=Kotlin)
+true
+~~~
+
+위 코드처럼
+~~~
+val copyUser1 = user3.copy(id = 1)
+~~~
+copy하여 특정 값만 바꿀 수도 있고
+
+~~~
+println(user1.equals(copyUser1))
+~~~
+== 대신 equals()로 비교할 수도 있다
