@@ -1,4 +1,4 @@
-> 작성일 2022/10/02 ~ 2022/10/08
+> 작성일 2022/10/02 ~ 2022/10/09
 
 <br>
 
@@ -1375,6 +1375,204 @@ constructor(osName:String, brand:String, model:String, price : Int)
 ~~~
 이 부분은 객체 생성 시 보조 생성자에 전달된 price에 값이 클래스 내부에 생성한 멤버 변수인 price으로 지정한 것이다
 
+### 초기화
+
+코드
+~~~
+fun main(){
+
+    val galaxy = MobilePhone()
 
 
+}
+class MobilePhone(){
+
+    var brand : String
+
+}
+~~~
+출력
+~~~
+Error
+~~~
+
+위 코드와 같이 클래스내에 변수를 선언하면 항상 초기화를 시켜주어야 한다
+
+하지만 lateinit을 추가하여 나중에 초기화를 예정시키는 방법이 있다
+
+코드
+~~~
+fun main(){
+    val galaxy = MobilePhone()
+
+    galaxy.brand
+
+}
+class MobilePhone(){
+
+    lateinit var brand : String
+    
+}
+~~~
+출력
+~~~
+Error
+~~~
+하지만 위와 같은 경우에도
+아직 초기화를 시키지 않았는데 해당
+값에 접근하려 한다면 오류가 나게 된다
+
+그러니
+
+코드
+~~~
+fun main(){
+    val galaxy = MobilePhone()
+
+    galaxy.brand
+
+}
+class MobilePhone(){
+
+    lateinit var brand : String
+
+    init {
+        brand = "Samsung"
+    }
+
+}
+~~~
+출력
+~~~
+~~~
+
+위와 같이 init으로 초기화를 시켜주게 되면
+오류가 안나게 된다
+
+### private
+
+private는 해당 클래스에서만 사용할 수 있게 하는 것이다
+만약 그 밖에서 사용하려고 한다면 오류가 발생하게 된다
+
+
+코드
+~~~
+fun main(){
+    val galaxy = MobilePhone()
+
+    galaxy.brand
+
+}
+class MobilePhone(){
+
+
+
+    private var brand : String
+
+    init {
+        brand = "Samsung"
+    }
+
+}
+~~~
+출력
+~~~
+Error
+~~~
+
+### 게터와 세터
+
+게터는 필드의 값을 반환하는 역할이고
+세터는 필드를 초기화하는 역할이다
+
+코드
+~~~
+fun main(){
+    val galaxy = MobilePhone()
+
+    println(galaxy.brand)
+
+}
+class MobilePhone(){
+
+
+
+    var brand : String = "SAMSUNG"
+    get() {
+        return field.toLowerCase()
+    }
+
+}
+~~~
+
+출력
+~~~
+samsung
+~~~
+
+해당 코드는 brand에 접근하려고 하면
+소문자로 받는 코드이다
+
+
+코드
+~~~
+fun main(){
+    val galaxy = MobilePhone()
+
+}
+class MobilePhone(){
+    
+    var price : Int = 100
+
+    get() = field
+    set(value) {
+        field = value
+    }
+    
+
+}
+~~~
+
+코드를 보면
+~~~
+    get() = field
+    set(value) {
+        field = value
+    }
+~~~
+이 부분에 코드는 우리가 
+~~~
+var price : Int = 100
+~~~
+이 변수를 만들 때 자동으로 생성되는 것으로
+field(price)는 value 값과 같다라는 것이다
+
+이 코드를 수정하면
+
+코드
+~~~
+fun main(){
+    val galaxy = MobilePhone()
+
+    galaxy.price = -1
+    println(galaxy.price)
+
+}
+class MobilePhone(){
+
+    var price : Int = 100
+    get() = field
+    set(value) {
+        field = if(value > 0) value else throw IllegalArgumentException("price must be greater than zero")
+    }
+
+~~~
+출력
+~~~
+Error 
+price must be greater than zero
+~~~
+
+아렇게 만약 value가 0 이하일 시 price must be greater than zero 에러 메세지를 출력하게 
+코드를 만들 수 있다
 
