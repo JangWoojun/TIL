@@ -1170,6 +1170,83 @@ Error
 
 참고로 여기서 toLowerCase()은 모두 소문자로 바꿔주는 메소드이다 
 
+
+## 배열
+
+배열은 변수들로 이루어진 유한 집합이다 배열을 구성하는 각각의 값을 배열 요소라고 하며 배열에서의 위치를 가리키는 숫자는 인덱스라고 한다
+
+코틀린에서 배열 선언 법은 여러 가지가 있는데
+
+코드
+~~~
+fun main() {
+
+    val number1:IntArray = intArrayOf(1,2,3,4,5)
+    val number2 = intArrayOf(1,2,3,4,5)
+    val number3 = arrayOf(1,2,3,4,5)
+
+    println(number1)
+    println(number1.contentToString())
+    
+}
+~~~
+출력
+~~~
+[I@7c30a502
+[1, 2, 3, 4, 5]
+~~~
+
+위 코드처럼 3가지 모두 int형 배열을 선언하는 방법들으로 number2 와 number3 같이
+타입 추론을 이용해 코드 길이를 줄일 수 있다
+
+그리고 배열에 값을 출력할 때는 배열에 이름을 넣는다면 배열에 값들이 나오는 것이
+아닌 주소 값이 나오기 때문에 contentToString()메소드를 사용해야 한다
+
+코드
+~~~
+fun main() {
+
+    val number1:IntArray = intArrayOf(1,2,3,4,5)
+    val number2 = intArrayOf(1,2,3,4,5)
+    val number3 = arrayOf(1,2,3,4,5)
+
+    number1[5] = 3
+
+}
+~~~
+
+출력
+~~~
+Error
+~~~
+
+그리고 배열에 접근할 때 처음에 지정한 요소 개수를 넘어간 인덱스에 접근하게 되면
+오류가 나게 된다
+
+코드
+~~~
+fun main() {
+
+    val human = arrayOf(Human("nick",31), Human("jon",21))
+
+    println(human.contentToString())
+
+}
+data class Human(val name:String,val age:Int)
+~~~
+
+출력
+~~~
+[Human(name=nick, age=31), Human(name=jon, age=21)]
+~~~
+
+또한 자료형 타입인 int,string,bool 같은 것만 배열을 만들 수 있는 것이 아닌
+위와 같이 배열 안에 객체 한 개를 다 저장할 수도 있다
+
+
+
+
+
 ## 클래스
 
 클래스란 값과 그 값을 사용하는 기능들을 묶어놓은 것으로 고유의 특징 값을 넣는 속성과 기능을 구현한 함수로 이루어졌다
