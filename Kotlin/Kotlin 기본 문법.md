@@ -1787,4 +1787,94 @@ myEcar range = 510.0
 이렇게 오버라이딩을 하려면 자식 클래스에 오버라이딩을 시킬 것에 override을 적으면
 된다 여기서 주의 할 점은 오버라이딩 시킬 요소가 부모 클래스에서 open 되어 있어야 한다
 
+## 인터페이스
+인터페이스란 다른 클래스를 작성할 때 기본이 되는 틀을 제공하면서 다른 클래스 사이의 중간 매개 역할까지 담당하는 일종의 추상 클래스를 의미한다
 
+코드
+~~~
+interface Drivable{
+    val maxSpeed: Double
+    fun brake() : String
+}
+~~~
+
+인터페이스는 위 코드처럼 이름 앞에 interface를 붙여 선언한다
+
+코드
+~~~
+interface Drivable{
+    val maxSpeed: Double
+    fun brake() : String
+}
+
+open class Car (val name: String, val brand: String, override val maxSpeed: Double):Drivable{
+    open var range:Double = 0.0
+
+    fun extendRange(amount: Double){
+        if (amount>0){
+            range+=amount
+        }
+    }
+    fun drive(distance: Double){
+        println("Drove for $distance KM")
+    }
+
+    override fun brake(): String {
+        return "brake!!"
+    }
+
+
+}
+~~~
+
+클래스가 인터페이스의 기능을 확장한다면 위 코드처럼 : 뒤에 확장할 인터페이스 명을 붙인다
+그리고 인터페이스에 있는 것들을 추가해줘야 한다
+
+코드
+~~~
+interface Drivable{
+    val maxSpeed: Double
+    fun brake() : String
+}
+
+open class Car (val name: String, val brand: String, override val maxSpeed: Double):Drivable{
+    open var range:Double = 0.0
+
+    fun extendRange(amount: Double){
+        if (amount>0){
+            range+=amount
+        }
+    }
+    fun drive(distance: Double){
+        println("Drove for $distance KM")
+    }
+
+    override fun brake(): String {
+        return "brake!!"
+    }
+
+
+}
+
+class ElectricCar(name: String, brand: String, batteryLife:Double, maxSpeed: Double) :
+    Car (name, brand, maxSpeed){
+
+}
+
+
+
+fun main(){
+    var myCar = Car("A6","Audi",300.0)
+    var myEcar = ElectricCar("S-Model","Tesla",85.0,400.0)
+
+    print(myCar.brake())
+
+}
+~~~
+
+출력
+~~~
+brake!!
+~~~
+
+그럼 위 코드처럼 사용할 수 있다
