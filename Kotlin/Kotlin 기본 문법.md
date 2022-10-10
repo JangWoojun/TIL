@@ -1,4 +1,4 @@
-> 작성일 2022/10/02 ~ 2022/10/09
+> 작성일 2022/10/02 ~ 2022/10/10
 
 <br>
 
@@ -1643,3 +1643,148 @@ copy하여 특정 값만 바꿀 수도 있고
 println(user1.equals(copyUser1))
 ~~~
 == 대신 equals()로 비교할 수도 있다
+
+## 상속
+
+코틀린에는 상속이라는 개념이 존재하여 
+
+크게 부모 클래스(상위 클래스)와 자식 클래스(하위 클래스)가 있고 자식 클래스는 부모 클래스를 선택하여 그 부모의 멤버를 상속받아 그대로 쓸 수 있게 된다
+
+코드
+~~~
+open class Car (val name: String,val brand: String){
+
+}
+
+class ElectricCar(name: String, brand: String , batteryLife:Double) : Car (name, brand){
+
+}
+~~~
+
+상속 방법은 위 코드처럼 처럼 부모 클래스가 될 클래스 앞에 open을 적어준 뒤
+자식 클래스에는 : 뒤에 상속 받을 부모 클래스를 적어준다 여기서 명심할 점은 
+
+부모의 매개 변수를 자식에게도 추가해 줘야 한다 또한 부모의 매개 변수들 모두 추가했다면
+자식에게 다른 배개 변수를 추가해도 된다
+
+상속에 특징으로는
+
+코드
+~~~
+open class Car (val name: String,val brand: String){
+    var range:Double = 0.0
+
+    fun extendRange(amount: Double){
+        if (amount>0){
+            range+=amount
+        }
+    }
+    fun drive(distance: Double){
+        println("Drove for $distance KM")
+    }
+
+}
+
+class ElectricCar(name: String, brand: String , batteryLife:Double) : Car (name, brand){
+
+}
+
+fun main(){
+    var myCar = Car("A6","Audi")
+    var myEcar = ElectricCar("S-Model","Tesla",85.0)
+
+    myCar.drive(200.0)
+    myEcar.drive(399.0)
+}
+~~~
+
+출력
+~~~
+Drove for 200.0 KM
+Drove for 399.0 KM
+~~~
+
+이렇게 부모 클래스에 있는 프로퍼티와 메소드를 사용할 수 있다
+
+~~~
+open class Car (val name: String,val brand: String){
+    var range:Double = 0.0
+
+    fun extendRange(amount: Double){
+        if (amount>0){
+            range+=amount
+        }
+    }
+    fun drive(distance: Double){
+        println("Drove for $distance KM")
+    }
+
+}
+
+class ElectricCar(name: String, brand: String , batteryLife:Double) : Car (name, brand){
+
+}
+
+
+
+fun main(){
+    var myCar = Car("A6","Audi")
+    var myEcar = ElectricCar("S-Model","Tesla",85.0)
+
+    myCar.drive(200.0)
+    myEcar.drive(399.0)
+
+    myCar.toString()
+}
+~~~
+
+또한 어느 클래스든 Any 클래스를 상속 받기에
+equals,hashCode,toString 같은 함수 또는 메소드를 사용할 수 있다
+
+### 오버라이딩
+
+부모클래스의 메소드를 자식클래스에서 재정의해서 사용할 수 있는데 이걸 오버라이딩이라고 한다
+
+코드
+~~~
+open class Car (val name: String,val brand: String){
+    open var range:Double = 0.0
+
+    fun extendRange(amount: Double){
+        if (amount>0){
+            range+=amount
+        }
+    }
+    fun drive(distance: Double){
+        println("Drove for $distance KM")
+    }
+
+}
+
+class ElectricCar(name: String, brand: String , batteryLife:Double) : Car (name, brand){
+    override var range = batteryLife*6
+}
+
+
+
+fun main(){
+    var myCar = Car("A6","Audi")
+    var myEcar = ElectricCar("S-Model","Tesla",85.0)
+
+    myCar.range = 85.0
+
+
+    println("myCar range = ${myCar.range}\nmyEcar range = ${myEcar.range}")
+}
+~~~
+
+출력
+~~~
+myCar range = 85.0
+myEcar range = 510.0
+~~~
+
+이렇게 오버라이딩을 하려면 자식 클래스에 오버라이딩을 시킬 것에 override을 적으면
+된다 여기서 주의 할 점은 오버라이딩 시킬 요소가 부모 클래스에서 open 되어 있어야 한다
+
+
