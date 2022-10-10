@@ -1788,7 +1788,7 @@ myEcar range = 510.0
 된다 여기서 주의 할 점은 오버라이딩 시킬 요소가 부모 클래스에서 open 되어 있어야 한다
 
 ## 인터페이스
-인터페이스란 다른 클래스를 작성할 때 기본이 되는 틀을 제공하면서 다른 클래스 사이의 중간 매개 역할까지 담당하는 일종의 추상 클래스를 의미한다
+인터페이스란 다른 클래스를 작성할 때 기본이 되는 틀을 제공하면서 다른 클래스 사이의 중간 매개 역할까지 담당하는 일종의 추상 클래스를 의미한다 단 인터페이스에서는 프로퍼티의 상태 정보를 저장할 수 없어 프로퍼티의 초기화가 불가능하다
 
 코드
 ~~~
@@ -1878,3 +1878,89 @@ brake!!
 ~~~
 
 그럼 위 코드처럼 사용할 수 있다
+
+## 추상 클래스
+
+추상 클래스는 인터페이스와 비슷한데 대략적인 설계의 명세와 공통의 기능을 구현한 클래스로 
+추상 클래스를 상속하는 하위 클래스는 추상 클래스의 내용을 더 구체화 해야 한다 다만 인터페이스와 달리 프로퍼티의 초기화가 가능하다
+
+추상 클래스는
+
+코드
+~~~
+abstract class Car(val name : String, val color : String, val weight : Double) {
+
+    abstract var maxSpeed : Double
+    
+    var year = "2021"
+    
+    abstract fun start()
+    abstract fun stop()
+
+    fun displaySpecs() {
+        println("Name : $name, Color : $color, Weight : $weight, Year : $year, MaxSpeed : $maxSpeed")
+    }
+}
+~~~
+위 코드처럼 abstract를 붙여 만들 수 있다
+특징으로는
+
+~~~
+var year = "2021"
+~~~
+인터페이스랑 달리 위 코드 같이 초기값을 갖는 일반 프로퍼티가 가능하고
+
+~~~
+abstract var maxSpeed : Double
+
+abstract fun start()
+abstract fun stop()
+~~~
+이것들 처럼 추상 프로퍼티나 메소드로 만들 수도 있다
+하지만 이것들을 사용하기 위해서는 해당 클래스가 추상 클래스이여야 하며
+꼭 상속받는 클래스에서 재정의 해줘야 한다
+
+또한 open을 써주지 않아도 상속이 가능하다
+
+코드
+~~~
+abstract class Car(val name : String, val color : String, val weight : Double) {
+
+    abstract var maxSpeed : Double
+
+    var year = "2021"
+
+    abstract fun start()
+    abstract fun stop()
+
+    fun displaySpecs() {
+        println("Name : $name, Color : $color, Weight : $weight, Year : $year, MaxSpeed : $maxSpeed")
+    }
+}
+
+class ElectricCar(name: String, color: String, weight: Double, override var maxSpeed: Double): Car(name, color, weight) {
+
+    override fun start() {
+        println("ElectricCar start")
+    }
+
+    override fun stop() {
+        println("ElectricCar Stop")
+    }
+
+}
+
+fun main() {
+    val tesla =ElectricCar("Model S","Red",300.2,322.0)
+
+    tesla.displaySpecs()
+}
+~~~
+
+출력
+
+~~~
+Name : Model S, Color : Red, Weight : 300.2, Year : 2021, MaxSpeed : 322.0
+~~~
+
+
