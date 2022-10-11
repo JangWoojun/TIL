@@ -1361,7 +1361,66 @@ fun main() {
 
 위와 같이 mutableSetOf를 사용해 뮤터블 집합을 선언할 수 있다 또한 add를 이용해 apple을 추가한 것을 볼 수 있다
 
+## 맵
 
+맵은 키와 값로 이루어져 있어 키를 통해서 값를 가져오는 것이
+가능하다
+
+### 이뮤터블 맵
+
+코드
+~~~
+fun main() {
+
+    val fruits = mapOf(1 to "banana","red" to "apple")
+
+    println(fruits[1])
+    println(fruits["red"])
+
+}
+~~~
+출력
+~~~
+banana
+apple
+~~~
+위와 같이 mapOf를 사용해 이뮤터블 맵을 선언할 수 있다 또한 앞에서 설명한 것처럼 키를 통해 값에 접근 할 수 있기에
+~~~
+println(fruits[1])
+~~~
+을 사용하여 banana를 출력하였고
+~~~
+println(fruits["red"])
+~~~
+를 사용하여 apple을 출력한 것이다
+
+### 뮤타블 맵
+
+코드
+~~~
+fun main() {
+
+    val fruits = mutableMapOf(1 to "banana","red" to "apple")
+
+    fruits[5] = "melon"
+    fruits.put(3, "watermelon")
+
+}
+~~~
+출력
+~~~
+melon
+watermelon
+~~~
+
+위와 같이 mutableMapOf를 사용해 뮤터블 맵을 선언할 수 있다 또한 값을 추가 할 때는 
+~~~
+fruits[5] = "melon"
+~~~
+~~~
+fruits.put(3, "watermelon")
+~~~
+이렇게 두가지 방법이 있는데 보통 전자를 선호한다
 
 ## 클래스
 
