@@ -1315,6 +1315,53 @@ fun main() {
 add를 이용하여 값을 추가할 수도 있고 removeAt을 이용하여 값을 제거하는 등
 이외에도 여러가지 메소드를 쓸 수 있다
 
+## 집합
+
+집합은 순서가 없고 중복 된 데이터 값을 삭제한다
+
+### 이뮤터블 집합
+
+코드
+~~~
+fun main() {
+
+    val fruits = setOf("banana","banana","banana")
+
+    println(fruits.toSortedSet())
+
+}
+~~~
+출력
+~~~
+[banana]
+~~~
+위와 같이 setOf를 사용해 이뮤터블 집합을 선언할 수 있다 또한 앞에서 설명한 것처럼 중복을 허용하지 않기 때문에
+banana를 3개 집어넣었어도 값은 하나밖에 안 들어가 있는 걸 볼 수 있다
+
+### 뮤타블 집합
+
+코드
+~~~
+fun main() {
+
+    val fruits = mutableSetOf("banana","banana","banana")
+
+    println(fruits.toSortedSet())
+
+    fruits.add("apple")
+
+    println(fruits.toSortedSet())
+}
+~~~
+출력
+~~~
+[banana]
+[apple, banana]
+~~~
+
+위와 같이 mutableSetOf를 사용해 뮤터블 집합을 선언할 수 있다 또한 add를 이용해 apple을 추가한 것을 볼 수 있다
+
+
 
 ## 클래스
 
