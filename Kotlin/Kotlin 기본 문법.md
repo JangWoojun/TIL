@@ -1422,6 +1422,34 @@ fruits.put(3, "watermelon")
 ~~~
 이렇게 두가지 방법이 있는데 보통 전자를 선호한다
 
+## 배열 리스트
+
+배열 리스트 코틀린에서 동적으로 데이터를 조작할 수 있는 배열이다
+
+코드
+~~~
+fun main() {
+
+    val fruits = arrayListOf("apple")
+
+    println(fruits)
+
+    fruits.add("banana")
+
+    println(fruits)
+
+}
+~~~
+
+출력
+~~~
+[apple]
+[apple, banana]
+~~~
+
+배열 리스트는 위와 같이 arrayListOf로 선언하며
+뮤타블 리스트과는 둘다 리스트로 인식되므로 큰 차이는 없다
+
 ## 클래스
 
 클래스란 값과 그 값을 사용하는 기능들을 묶어놓은 것으로 고유의 특징 값을 넣는 속성과 기능을 구현한 함수로 이루어졌다
