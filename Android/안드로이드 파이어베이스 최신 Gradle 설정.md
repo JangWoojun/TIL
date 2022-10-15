@@ -2,6 +2,12 @@
 
 # 안드로이드 스튜디오 chipmunk 파이어베이스 Gradle Kotlin 설정
 
+# 문제 상황
+
+파이어베이스 사이트에서 알려주는 android studio gradle 연결 방법이 최신 버전인 chipmunk과 다르다
+
+# 해결법
+
 파이어베이스 사이트에서 알려주는 android studio gradle 연결 방법이 최신 버전인 chipmunk와 다르기 때문에
 
 공식 문서와 다른 방법으로 gradle을 설정해주어야 한다
