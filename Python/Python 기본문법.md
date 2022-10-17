@@ -1,4 +1,4 @@
-> 작성일 2022/10/14 ~ 2022/10/16
+> 작성일 2022/10/14 ~ 2022/10/17
 
 <br>
 
@@ -305,4 +305,35 @@ a = ["a",2,True,3.14,"abcdef"]
 
 위와 같이 대괄호로 감싸주고 ,로 요소를 구분하여 준다
 
+코드
+~~~
+a = ["a",2,True,3.14,"abcdef"]
 
+print(a[0])
+~~~
+출력
+~~~
+a
+~~~
+
+리스트 요소에 접근은 문자열과 마찬가지로 0부터
+시작하며 []에 해당하는 인덱스 번호를 적는 것으로 접근할 수 있다
+
+또한 리스트에는 값을 추가하거나 제거하는 것이 가능한데 
+
+코드
+~~~
+subway = ["jon","minsu","kang","insu"]
+print(subway)
+subway.append("ansu")
+print(subway)
+subway.pop()
+print(subway)
+~~~
+출력
+~~~
+['jon', 'minsu', 'kang', 'insu']
+['jon', 'minsu', 'kang', 'insu', 'ansu']
+['jon', 'minsu', 'kang', 'insu']
+~~~
+위와 같이 append를 이용해 리스트 마지막에 값을 추가하거나 pop을 통해 마지막 값을 제거하는 것이 가능하다
