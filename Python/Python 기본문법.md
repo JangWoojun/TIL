@@ -1,4 +1,4 @@
-> 작성일 2022/10/14 ~ 2022/10/17
+> 작성일 2022/10/14 ~ 2022/10/18
 
 <br>
 
@@ -325,8 +325,10 @@ a
 ~~~
 subway = ["jon","minsu","kang","insu"]
 print(subway)
+
 subway.append("ansu")
 print(subway)
+
 subway.pop()
 print(subway)
 ~~~
@@ -337,3 +339,93 @@ print(subway)
 ['jon', 'minsu', 'kang', 'insu']
 ~~~
 위와 같이 append를 이용해 리스트 마지막에 값을 추가하거나 pop을 통해 마지막 값을 제거하는 것이 가능하다
+
+이외에도 
+
+코드
+~~~
+subway = ["jon","minsu","kang","insu"]
+print(subway)
+
+subway.insert(1,"kim")
+print(subway)
+
+subway.append("kim")
+print(subway.count("kim"))
+
+print(subway.index("kim"))
+
+subway.remove("kim")
+print(subway)
+
+subway.sort()
+print(subway)
+
+subway.reverse()
+print(subway)
+
+subway.clear()
+print(subway)
+~~~
+
+출력
+~~~
+['jon', 'minsu', 'kang', 'insu']
+['jon', 'kim', 'minsu', 'kang', 'insu']
+2
+1
+['jon', 'minsu', 'kang', 'insu', 'kim']
+['insu', 'jon', 'kang', 'kim', 'minsu']
+['minsu', 'kim', 'kang', 'jon', 'insu']
+[]
+~~~
+
+특정 위치에 추가 특정 요소 삭제,정렬,요소 개수 세기,리스트 비우기,리스트 비우기,요소 위치 파악 등등 다양한 것을 할 수 있다
+
+# 딕셔너리
+
+딕셔너리란 key와 value에 형태로 이루어졌으며
+해당 key와 value를 1대1로 대응시킨 자료형을 말한다
+
+~~~
+fruit = {"사과":30,"바나나":32}
+~~~
+딕셔너리는 위와 같이 {}로 묶고 그 안에 key와 value를 : 로 대응시키고 요소는 ,로 구분한다 
+
+값에 추가는
+
+코드
+~~~
+fruit = {"사과":30,"바나나":32}
+print(fruit)
+fruit["수박"] = 100
+print(fruit)
+~~~
+
+출력
+~~~
+{'사과': 30, '바나나': 32}
+{'사과': 30, '바나나': 32, '수박': 100}
+~~~
+
+위와 같이 할 수 있으며
+
+코드
+~~~
+fruit = {"사과":30,"바나나":32}
+print(fruit)
+
+fruit["수박"] = 100
+print(fruit)
+
+del fruit["사과"]
+print(fruit)
+~~~
+출력
+~~~
+{'사과': 30, '바나나': 32}
+{'사과': 30, '바나나': 32, '수박': 100}
+{'바나나': 32, '수박': 100}
+~~~
+
+del을 이용하여 값을 삭제하는 것도 가능하다
