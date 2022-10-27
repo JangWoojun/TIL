@@ -800,11 +800,10 @@ students("장우준","파이썬","자바","코틀린","C","C++")
 
 코드
 ~~~
-box = 10
-def eat(a):
-    box = box - a
+def eat(b):
+    box = 10
+    box = box - b
     print(f"사과가 상자에 {box}개 남았습니다")
-    
 eat(5)
 print(box)
 ~~~
@@ -813,8 +812,28 @@ print(box)
 Error
 ~~~
 
-box는 지역변수이기 때문에 함수에서 접근할 수 없다
-그래서 접근하려면
+box는 지역변수로 함수가 실행될 때 생기고 함수가 종료되면 사라지기 때문에 이후에는 접근할 수 없다 그래서 접근하려면
+
+코드
+~~~
+def eat(b):
+    global box
+    box = 10
+    box = box - b
+    print(f"사과가 상자에 {box}개 남았습니다")
+eat(5)
+print(box)
+~~~
+
+출력
+~~~
+사과가 상자에 5개 남았습니다
+5
+~~~
+
+global 로 box를 전역변수로 선언하여 접근할 수 있습니다
+
+또한
 
 코드
 ~~~
@@ -827,11 +846,10 @@ def eat(a):
 eat(5)
 print(box)
 ~~~
-
 출력
 ~~~
 사과가 상자에 5개 남았습니다
 5
 ~~~
 
-global 로 box를 전역변수로 선언하여 접근할 수 있습니다
+또한 global box로 전역변수 box를 사용한다는 의미로 사용할 수 있다
