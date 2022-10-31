@@ -1,4 +1,4 @@
-> 작성일 2022/10/14 ~ 2022/10/29
+> 작성일 2022/10/14 ~ 2022/11/01
 
 <br>
 
@@ -897,3 +897,38 @@ print(box)
 ~~~
 
 또한 global box로 전역변수 box를 사용한다는 의미로 사용할 수 있다
+
+# 파일 입출력
+
+파이썬을 이용하여 파일을 불러오거나 작성하는 등 여러 작업을 할 수 있다
+
+코드
+~~~
+name_file = open("name.text","w",encoding="utf-8")
+name_file.write("김철수 : 17\n")
+name_file.write("김영희 : 13\n")
+name_file.close()
+~~~
+
+위와 같이 변수에다가 open()을 적고 안에 파일 명과 ,모드를 설정하고 encoding을 utf-8로 설정해준 뒤 write()로 파일안에 내용을 작성해줄 수 있다
+
+그 후 내용 작성이 완료되면 close를 통해 닫으면 된다
+여기서 모드 키워드 w는 write를 의미하며 파일을 작성하는 것이고
+a로 append 즉 이미 있는 파일에 내용을 추가하는 것고 가능하다
+
+또한 
+
+코드
+~~~
+name_file = open("name.text","r",encoding="utf-8")
+name_list = name_file.readlines()
+
+for i in name_list:
+    print(i,end="")
+~~~
+출력
+~~~
+김철수 : 17
+김영희 : 13
+~~~
+r, read 모드로 파일을 읽어오는 것도 가능하다
