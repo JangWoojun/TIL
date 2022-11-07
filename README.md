@@ -24,6 +24,10 @@
     + [보조 기억 장치 관리](https://github.com/JangWoojun/TIL/blob/main/CS/%EB%B3%B4%EC%A1%B0%20%EA%B8%B0%EC%96%B5%20%EC%9E%A5%EC%B9%98%20%EA%B4%80%EB%A6%AC.md)
     + [가상 기억 장치 관리](https://github.com/JangWoojun/TIL/blob/main/CS/%EA%B0%80%EC%83%81%20%EA%B8%B0%EC%96%B5%20%EC%9E%A5%EC%B9%98%20%EA%B4%80%EB%A6%AC.md)
     + [주 기억 장치 관리](https://github.com/JangWoojun/TIL/blob/main/CS/%EC%A3%BC%20%EA%B8%B0%EC%96%B5%20%EC%9E%A5%EC%B9%98%20%EA%B4%80%EB%A6%AC.md)
+    
+## DS
+* 자료구조
+    + [자료구조](https://github.com/JangWoojun/TIL/blob/main/DS/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0.md)
 
 ## Kotlin
 * 문법
