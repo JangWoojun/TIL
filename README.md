@@ -12,7 +12,11 @@
 
 
 ## Mobile
+* iOS
+    + [iOS 스토리보드 삭제](#https://github.com/JangWoojun/TIL/blob/main/iOS/iOS%20%EC%8A%A4%ED%86%A0%EB%A6%AC%EB%B3%B4%EB%93%9C%20%EC%82%AD%EC%A0%9C.md)
+
 * Android
+    + [안드로이드 SplashScreen 이미지](#https://github.com/JangWoojun/TIL/blob/main/Android/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20SplashScreen%20%EC%9D%B4%EB%AF%B8%EC%A7%80.md)
     + [안드로이드 레이아웃](https://github.com/JangWoojun/TIL/blob/main/Android/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83.md)
     + [안드로이드 Missing contentDescription attribute on image 해결](https://github.com/JangWoojun/TIL/blob/main/Android/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20Missing%20contentDescription%20attribute%20on%20image%20%ED%95%B4%EA%B2%B0.md)
     + [안드로이드 스튜디오 최신버전 파이어베이스 Gradle설정](https://github.com/JangWoojun/TIL/blob/main/Android/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EB%B2%A0%EC%9D%B4%EC%8A%A4%20%EC%B5%9C%EC%8B%A0%20Gradle%20%EC%84%A4%EC%A0%95.md)
