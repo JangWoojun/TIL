@@ -32,6 +32,13 @@
 ## DS
 * 자료구조
     + [자료구조](https://github.com/JangWoojun/TIL/blob/main/DS/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0.md)
+    + [배열](https://github.com/JangWoojun/TIL/blob/main/DS/%EB%B0%B0%EC%97%B4.md)
+    + [연결 리스트](https://github.com/JangWoojun/TIL/blob/main/DS/%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8.md)
+    + [스택](https://github.com/JangWoojun/TIL/blob/main/DS/%EC%8A%A4%ED%83%9D.md)
+    + [큐](https://github.com/JangWoojun/TIL/blob/main/DS/%ED%81%90.md)
+    + [우선순위 큐](https://github.com/JangWoojun/TIL/blob/main/DS/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%20%ED%81%90.md)
+    + [맵](https://github.com/JangWoojun/TIL/blob/main/DS/%EB%A7%B5.md)
+    + [집합](https://github.com/JangWoojun/TIL/blob/main/DS/%EC%A7%91%ED%95%A9.md)
 
 ## Kotlin
 * 문법
@@ -49,4 +56,3 @@
 ## C++
 * 문법
     + [기초 문법](https://github.com/JangWoojun/TIL/blob/main/C%2B%2B/C%2B%2B%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95.md)
-    + [알고리즘]()
