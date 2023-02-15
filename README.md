@@ -43,6 +43,8 @@
 ## Kotlin
 * 문법
     + [기초 문법](https://github.com/JangWoojun/TIL/blob/main/Kotlin/Kotlin%20%EA%B8%B0%EB%B3%B8%20%EB%AC%B8%EB%B2%95.md)
+* etc
+    + [안드로이드 Kotlin 코드 딜레이 시키기](https://github.com/JangWoojun/TIL/blob/main/Android/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20Kotlin%20%EC%BD%94%EB%93%9C%20%EC%A7%80%EC%97%B0.md)
 
 ## Python
 * 문법
